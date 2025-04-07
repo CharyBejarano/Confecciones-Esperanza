@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="styles/stilos.css">
+    <link rel="stylesheet" href="styles/perfil.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <div class="profile-container">
+                <h1>Mi perfil</h1>
+                <div class="profile-content">
+                    <div class="profile-photo">
+                        <img src="img/perfil.jpeg" alt="Foto de perfil">
+                        <a href="#" class="edit-photo">Editar foto</a>
+                    </div>
+                    
+                    <div class="profile-info">
+                        <div class="info-field">
+                            <label>Nombre:</label>
+                            <div class="input-container">
+                                <input type="text" value="Daniel Rodriguez">
+                            </div>
+                        </div>
+                        
+                        <div class="info-field">
+                            <label>Email:</label>
+                            <div class="input-container">
+                                <input type="email" value="DanielR@gmail.com">
+                            </div>
+                        </div>
+                        
+                        <div class="info-field">
+                            <label>Telefono:</label>
+                            <div class="input-container">
+                                <input type="tel" value="+57 3084998763">
+                            </div>
+                        </div>
+                        
+                        <div class="password-update">
+                            <a href="#">Actualizar contraseña</a>
+                        </div>
+                    </div>
+                    
+                    <div class="position-field">
+                        <label>Cargo:</label>
+                        <div class="input-container wide">
+                            <input type="text" value="Administrador" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="buttons">
+                        <button class="save-btn">Guardar cambios</button>
+                        <button class="back-btn">Volver</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

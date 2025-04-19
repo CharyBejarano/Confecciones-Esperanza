@@ -1,0 +1,96 @@
+h1{
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #000000;   
+}
+
+
+.FechaPedido{
+    display: flex;
+    justify-content: baseline;
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-top: 50px;
+
+}
+h3 {
+    font-size: 60px;
+    color: black;
+    
+
+}
+
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 30px;
+    border: 1px solid #0e0e0e;
+    border-radius: 5px;
+    background-color: #c2c1c4;
+}
+.Estados {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 50px;
+    font-size: 40px;
+    
+}
+.Estados button:active{
+    color: #6a0dad;
+}
+
+.Estados button{
+    display: flex;
+    font-size: 40px;
+    padding: 10px 70px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-right: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+    background-color: #c2c1c4;
+}
+
+button {
+    padding: 10px 15px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s;
+    text-align: center;
+    
+}
+.Estados button:hover{
+    transform: scale(1.05);
+    color: #6a0dad;
+}
+
+.Generar{
+    background-color: rgb(90, 199, 62);
+    color: #000000;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 40px;
+    margin-left: auto;
+    margin-top: 50px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.Generar:hover{
+    transform: scale(1.05);
+    color: #4655d8;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.content h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.content .form-group {
+    margin-bottom: 15px;
+}
+
+.content .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-size: 40px;
+}
+
+.content .form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 40px;
+}
+
+.content .form-group .date-input {
+    width: 30%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.content .form-group .date-input:last-child {
+    margin-right: 0;
+}
+
+.content .buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content .buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.form-group {
+margin-bottom: 15px;
+}
+.form-group label {
+margin-top: 20px;
+display: block;
+margin-bottom: 5px;
+color: #555;
+}
+.form-group input {
+width: 100%;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+.form-group .date-input {
+width: 30%;
+display: inline-block;
+margin-right: 5px;
+}
+.form-group .date-input:last-child {
+margin-right: 0;
+}
+.buttons {
+display: flex;
+justify-content: space-between;
+}
+.buttons button {
+padding: 10px 15px;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+color: #fff;
+
+}
+.register-btn {
+background-color: #4CAF50;
+margin-top: 170px;
+font-size: 40px;
+display: flex;
+justify-content:end;
+flex-wrap: wrap;
+}
+.back-btn {
+background-color: #673AB7;
+margin-top: 170px;
+font-size: 40px;
+display: flex;
+justify-content: end;
+flex-wrap: wrap;
+}

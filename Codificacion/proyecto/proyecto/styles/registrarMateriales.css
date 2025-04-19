@@ -1,0 +1,88 @@
+
+
+
+h2 {
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    background-color: #dddddd;
+    margin-bottom: 15px;
+}
+
+.contenedor-imagen-botones {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.area-imagen {
+    width: 400px;
+    height: 260px;
+    border: 1px solid #aaa;
+    background-color: #f0f0f0;
+}
+
+.grupo-botones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.boton {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.boton .icon {
+    width: 24px;
+    height: 24px;
+}
+
+.agregar_img{
+    background-color: #28a745;
+}
+
+.eliminar_img {
+    background-color: #dc3545;
+}
+
+.visualizar_img {
+    background-color: #fd7e14;
+}
+
+.guardar{
+    background-color: #28a745;
+}
+
+.volver {
+    background-color: #a646e6;
+}
+
+.nuevo{
+    background-color: #a646e6;
+}
+
+.botones-inferiores {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 70px;
+}

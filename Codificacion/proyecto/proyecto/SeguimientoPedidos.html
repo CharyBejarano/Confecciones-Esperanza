@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/SeguimientoPedidos.css">
+    <link rel="stylesheet" href="styles/stilos.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+           
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <div class="content">
+                <h1>Seguimiento Pedidos</h1>
+            <div class="order-tracking">
+                <h2>Lista de pedidos</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nº Pedido</th>
+                        <th>Cliente</th>
+                        <th>Estado</th>
+                        <th>Progreso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0001</td>
+                        <td>Cliente A</td>
+                        <td>En proceso</td>
+                        <td>Confeccionadas: 20/50</td>
+                    </tr>
+                    <tr>
+                        <td>0002</td>
+                        <td>Cliente B</td>
+                        <td>Completado</td>
+                        <td>Confeccionadas: 100/100</td>
+                    </tr>
+                    <tr>
+                        <td>0003</td>
+                        <td>Cliente C</td>
+                        <td>Pendiente</td>
+                        <td>Confeccionadas: 0/150</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="filters">
+                <h2>Filtros</h2>
+                <label for="cliente">Cliente:</label>
+                <input type="text" id="cliente" placeholder="Buscar cliente...">
+                    <div class="status-filters">
+                        <label for="estado">Estado:</label>
+                        <button><span>Proceso</span></button>
+                        <button><span>completado</span></button>
+                        <button><span>Pendiente</span></button>
+                    </div>
+                    <div class="fila-inferior">
+                        <button class="Volver">Volver</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

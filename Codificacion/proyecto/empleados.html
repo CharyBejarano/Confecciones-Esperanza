@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="styles/stilos.css">
+    <link rel="stylesheet" href="styles/empleado.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <div class="content">
+                <div class="content">
+                    <h1>Empleados</h1>
+                    <div class="employee-buttons">
+                        <a href="registrar_empleado.html" class="btn blue">
+                            <img src="img/iconomas.png" alt="Registrar nuevo empleado">
+                            <span>Registrar nuevo Empleado</span>
+                        </a>
+                        <a href="consultar_empleados.html" class="btn orange">
+                            <img src="img/iconousuario.png" alt="Consultar empleados">
+                            <span>Consultar empleados</span>
+                        </a>
+                        <a href="consultar_nomina.html" class="btn purple">
+                            <img src="img/iconoconsultar.png" alt="Consultar nómina">
+                            <span>Consultar nómina</span>
+                        </a>
+                        <a href="registro_horas.html" class="btn purple">
+                            <img src="img/iconoregistro.png" alt="Registro de horas">
+                            <span>Registro de horas trabajados</span>
+                        </a>
+                        <a href="informes_pago.html" class="btn green">
+                            <img src="img/iconoinforme.png" alt="Generar informes">
+                            <span>Generar informes de pagos</span>
+                        </a>
+                    </div>
+                    <a href="index.html" class="btn volver">Volver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

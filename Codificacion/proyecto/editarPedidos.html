@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="styles/stilos.css">
+    <link rel="stylesheet" href="styles/stilosPedido.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+                <!-- Contenido principal -->  
+            <div class="caja">
+                <h1>Modificar un pedido</h1>   
+            
+            <div class="caja-input">
+                <label >Nueva cantidad</label>
+                <input type="number" id="cantidad" >
+            </div>
+
+               
+            <div class="caja-boton">
+                <button class="guardar">Guardar cambios</button>
+                 <button class="cancelar"><a href="ModificarPedidos.html" >cancelar</button></a>
+            </div>
+        </div>         
+        <!--Mensaje 1 -->
+                <div id="mensaje" class="mensaje">
+                    Cantidad cambiada con exito
+                     <button id="continuar">Continuar</button>
+                </div>
+            <script>
+                const botonCambios = document.querySelector('.guardar'); 
+                const mensaje = document.getElementById('mensaje');
+                const botonContinuar = document.getElementById('continuar');
+
+                botonCambios.addEventListener('click', function(e) {
+                e.preventDefault(); 
+                mensaje.style.display = 'flex'; 
+                });
+                botonContinuar.addEventListener('click', function() {
+                mensaje.style.display = 'none'; 
+                });
+            </script> 
+        
+</head>
+<body>
+    

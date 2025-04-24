@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="styles/stilos.css">
+    <link rel="stylesheet" href="styles/stilosCliente.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <a href="login.html">
+                        <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <div class="content">
+
+                <div class="formulario">
+                  <h2>Nombre</h2>
+                  <input type="text" placeholder="Nombre"/>
+              
+                  <h2>Razon social</h2>
+                  <input type="text" placeholder="empresa" />
+              
+                  <h2>Numero Identificacion</h2>
+                  <input type="text" placeholder="Numero"/>
+              
+                    <div class="formulario">
+                      <h2>Telefono de contacto</h2>
+                      <input type="text" placeholder="Telefono" />
+                    
+                      <h2>Correo electronico</h2>
+                        <input type="text" placeholder="correo" />
+
+                      <h2>Direccion</h2>
+                        <input type="text" placeholder="Direccion"/>
+                      </div>
+                    
+                      <div class="contenedor-imagen-botones">
+                        <div class="grupo-botones">
+                          <button class="boton guardar">
+                            <img src="img/salvar.png" class="icon" />
+                            Guardar
+                          </button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+                    
+                <div class="botones-inferiores">
+                  <button class="boton nuevo">
+                    Nuevo
+                  </button>
+                
+                  <button class="boton volver">
+
+                    Volver
+                  </button>
+                </div>
+            
+        </div>
+                <!--Mensaje -->
+                <div id="mensaje" class="mensaje">
+                    Cliente Registrado con exito
+                     <button id="continuar">Continuar</button>
+                </div>
+            <script>
+                const botonGuardar = document.querySelector('.guardar'); 
+                const mensaje = document.getElementById('mensaje');
+                const botonContinuar = document.getElementById('continuar');
+
+                
+                botonGuardar.addEventListener('click', function(e) {
+                e.preventDefault(); 
+                mensaje.style.display = 'flex'; 
+                });
+                botonContinuar.addEventListener('click', function() {
+                mensaje.style.display = 'none'; 
+                });
+
+            </script> 
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RegistroPedido</title>
+    <link rel="stylesheet" href="styles/stilos.css">
+    <link rel="stylesheet" href="styles/stilosPedido.css">
+</head> 
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+           
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <div class="content">
+                <h1>REGISTRO PEDIDOS</h1>
+                
+                <div class="form-group">
+                    <label>Cliente</label>
+                    <input type="text" id="cliente" name="cliente">
+                </div>
+                <div class="form-group">
+                    <label>Tipo de Producto</label>
+                    <input type="text" id="tipo-producto" name="tipo-producto">
+                </div>
+                <div class="form-group">
+                    <label>Cantidad de Prendas</label>
+                    <input type="number" id="cantidad-prendas" name="cantidad-prendas">
+                </div>
+                <div class="form-group">
+                    <label>Fecha de Entrega</label>
+                    <input type="text" class="date-input" placeholder="Día">
+                    <input type="text" class="date-input" placeholder="Mes">
+                    <input type="text" class="date-input" placeholder="Año">
+                </div>
+                <div class="buttons">
+                    <button class="registrar">Registrar</button>
+                   
+                </div>
+                <!--Mensaje -->
+                <div id="mensaje" class="mensaje">
+                    Pedido Registrado con exito
+                     <button id="continuar">Continuar</button>
+                </div>
+            <script>
+                const botonRegistrar = document.querySelector('.registrar'); 
+                const mensaje = document.getElementById('mensaje');
+                const botonContinuar = document.getElementById('continuar');
+
+                // Evento de clic en "Registrar"
+                botonRegistrar.addEventListener('click', function(e) {
+                e.preventDefault(); 
+                mensaje.style.display = 'flex'; 
+                });
+                botonContinuar.addEventListener('click', function() {
+                mensaje.style.display = 'none'; 
+                });
+
+            </script>  
+            </div>
+        </div>
+    </div>
+            
+</body>
+</html>

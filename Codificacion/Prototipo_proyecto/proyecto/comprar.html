@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="styles/fontello.css">
+    <link rel="stylesheet" href="styles/style_comprar.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <div class="titulo">
+                <h1>Materiales del Proveedor</h1>
+            </div>
+            <div class="contenedor-labels">
+                
+                <div class="label-material">
+                    <img src="./img/material1.jpg" alt="Imagen 1" class="imagen-material">
+                    <div class="label-text">
+                        <p>ID Material: 1001</p>
+                        <p>Material: Lino Texturizado</p>
+                        <p>Tipo: Lino</p>
+                        <p>Color: Beige</p>
+                        <p>Precio x Mtr o Und: $$$$$$</p>
+                    </div>
+                    <i class="icon-basket icon-btn"></i>
+                </div>
+                
+                <div class="label-material">
+                    <img src="./img/material2.jpg" alt="Imagen 2" class="imagen-material">
+                    <div class="label-text">
+                        <p>ID Material: 1002</p>
+                        <p>Material: Mezclilla</p>
+                        <p>Tipo: Delim Elastico</p>
+                        <p>Color: Azul Oscuro</p>
+                        <p>Precio x Mtr o Und: $$$$$$</p>
+                    </div>
+                    <i class="icon-basket icon-btn"></i>
+                </div>
+                
+                <div class="label-material">
+                <img src="./img/material3.jpg" alt="Imagen 3" class="imagen-material">
+                <div class="label-text">
+                    <p>ID Material: 1003</p>
+                    <p>Material: Cuero Sintetizado</p>
+                    <p>Tipo: Cuero</p>
+                    <p>Color: Negro</p>
+                    <p>Precio x Mtr o Und: $$$$$$</p>
+                </div>
+                    <i class="icon-basket icon-btn"></i>
+                </div>
+            </div>
+
+            <div id="modal" class="modal hidden">
+                <div class="modal-content">
+                    <h2>Añadir Cantidad</h2>
+                    <input type="number" id="cantidad" placeholder="Escribe la cantidad" min="1">
+                    <div class="modal-buttons">
+                        <button id="cancelar-btn">Cancelar</button>
+                        <button id="anadir-btn">Añadir</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="boton-flotante">
+                <a href="./carrito.html">
+                <i class="icon-basket icon-plus"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modal');
+        const cancelarBtn = document.getElementById('cancelar-btn');
+        const anadirBtn = document.getElementById('anadir-btn');
+        const iconos = document.querySelectorAll('.icon-btn');
+    
+        iconos.forEach((icono, index) => {
+            icono.addEventListener('click', () => {
+                modal.dataset.materialId = index + 1; // Asignar ID del material
+                modal.classList.remove('hidden');
+            });
+        });
+    
+        cancelarBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    
+        // Acción al hacer clic en "Añadir"
+        anadirBtn.addEventListener('click', () => {
+            const cantidad = document.getElementById('cantidad').value;
+            const materialId = modal.dataset.materialId;
+    
+            if (cantidad) {
+                // Obtener datos del material
+                const material = document.querySelectorAll('.label-material')[materialId - 1];
+                const materialInfo = {
+                    id: materialId,
+                    nombre: material.querySelector('.label-text p:nth-child(2)').textContent.split(': ')[1],
+                    cantidad: cantidad
+                };
+    
+                // Guardar en localStorage
+                const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+                carrito.push(materialInfo);
+                localStorage.setItem('carrito', JSON.stringify(carrito));
+    
+                alert(`Cantidad añadida: ${cantidad}`);
+                modal.classList.add('hidden');
+            } else {
+                alert('Por favor, ingresa una cantidad válida.');
+            }
+        });
+    </script>
+
+</body>
+</html>

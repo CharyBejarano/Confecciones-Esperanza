@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="styles/fontello.css">
+    <link rel="stylesheet" href="./styles/styles_proveedores.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+
+        <!-- Contenido principal -->
+        <div class="titulo">
+            <h1>Gestionar Proveedores</h1>
+        </div>
+
+        <div class="content-formulario">
+            <button class="btn-cargar-logo">Cargar Logo/Imagen</button>
+            <form class="formulario-proveedor">
+                <label for="nombre" class="form-label">Nombre / Marca:</label>
+                <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Ingrese el nombre o marca">
+        
+                <label for="direccion" class="form-label">Dirección:</label>
+                <input type="text" id="direccion" name="direccion" class="form-input" placeholder="Ingrese la dirección">
+        
+                <label for="contacto" class="form-label">Número de Contacto:</label>
+                <input type="text" id="contacto" name="contacto" class="form-input" placeholder="Ingrese el número de contacto">
+            </form>
+
+            <button class="btn-actualizar">Actualizar</button>
+            <a href="proveedores.html">
+            <button class="btn-cancelar">Cancelar</button>
+            </a>
+
+            <div class="contenedor-desplegable" id="mensaje-exito">
+                <p>El Proveedor se ha Actualizado Correctamente</p>
+                <img src="./img/check_verde.jpg" alt="Imagen de éxito" class="imagen-exito">
+                <a href="./proveedores.html" class="btn-finalizado">Finalizado</a>
+            </div>
+        </div>
+
+        <div class="contenedor-botones">
+            <button class="btn-eliminar">Eliminar Proveedor</button>
+            <a href="./materiales_proveedores.html">
+            <button class="btn-configurar">Configurar Catálogo</button>
+            </a>
+        </div>
+
+        <div class="contenedor-eliminado" id="mensaje-eliminado">
+            <p>El Proveedor se ha Eliminado Correctamente</p>
+            <a href="./proveedores.html" class="btn-finalizar">Finalizar</a>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const btnActualizar = document.querySelector(".btn-actualizar");
+        const mensajeExito = document.getElementById("mensaje-exito");
+        const btnEliminar = document.querySelector(".btn-eliminar");
+        const mensajeEliminado = document.getElementById("mensaje-eliminado");
+
+        // Mostrar mensaje de éxito al actualizar
+        btnActualizar.addEventListener("click", function (event) {
+            event.preventDefault(); // Evita que el formulario se envíe si está dentro de uno
+            mensajeExito.style.display = "flex"; // Muestra el mensaje de éxito
+        });
+
+        // Mostrar mensaje de eliminación al eliminar proveedor
+        btnEliminar.addEventListener("click", function (event) {
+            event.preventDefault(); // Evita cualquier acción predeterminada
+            mensajeEliminado.style.display = "flex"; // Muestra el mensaje de eliminación
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

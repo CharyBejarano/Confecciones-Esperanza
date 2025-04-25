@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registra Material</title>
+    <link rel="stylesheet" href="styles/stilos.css">
+    <link rel="stylesheet" href="styles/inventario.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <div class="content">
+
+              <div class="formulario">
+                <h2>Tipo de Material</h2>
+                <input type="text" id="tipo-material" placeholder="Tipo de material" />
+              
+                <h2>Stock</h2>
+                <input type="text" id="stock" placeholder="Stock" />
+              
+                <h2>Proveedor</h2>
+                <input type="text" id="proveedor" placeholder="Proveedor" />
+              
+                <div class="formulario">
+                  <h2>Cantidad</h2>
+                  <input type="text" id="cantidad" placeholder="Cantidad" />
+              
+                  <h2>Fecha de entrada</h2>
+                  <div class="input-fecha">
+                    <input type="date" id="fecha-entrada" />
+                  </div>
+              
+                    
+                      <div class="contenedor-imagen-botones">
+                        <div class="grupo-botones">
+                          <button class="boton agregar_img">
+                            <img src="img/iconomas.png" alt="agregar img" class="icon">
+                            Agregar imagen 
+                          </button>
+                      
+                          <button class="boton eliminar_img">
+                            <img src="img/basura.png" class="icon" />
+                            Eliminar imagen
+                          </button>
+                      
+                          <button class="boton visualizar_img">
+                            <img src="img/iconoconsultar.png" class="icon" />
+                            Visualizar
+                          </button>
+                      
+                          <button class="boton guardar">
+                            <img src="img/salvar.png" class="icon" />
+                            Guardar
+                          </button>
+                        </div>
+                        
+                        <div class="area-imagen">
+                        </div>
+                    
+                        
+                        </div>
+                      </div>
+                    </div>
+                    
+                <div class="botones-inferiores">
+                  <button class="boton nuevo">
+                    Nuevo
+                  </button>
+                
+                  <a href="configuracion.html" class="boton volver">
+                    
+                    <span>Volver</span>
+                </a>
+
+
+                </div>
+                <div id="mensaje-exito" class="mensaje-exito">
+                  ¡Material registrado con éxito!
+              </div>
+              
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const btnGuardar = document.querySelector(".guardar");
+                    const mensaje = document.getElementById("mensaje-exito");
+                
+                    btnGuardar.addEventListener("click", function (e) {
+                        e.preventDefault();
+                
+                        const tipoMaterial = document.getElementById("tipo-material").value.trim();
+                        const stock = document.getElementById("stock").value.trim();
+                        const proveedor = document.getElementById("proveedor").value.trim();
+                        const cantidad = document.getElementById("cantidad").value.trim();
+                        const fechaEntrada = document.getElementById("fecha-entrada").value.trim();
+                
+                        if (!tipoMaterial || !stock || !proveedor || !cantidad || !fechaEntrada) {
+                            alert("Por favor complete todos los campos antes de guardar.");
+                            return;
+                        }
+                
+                        const nuevoMaterial = {
+                            tipoMaterial,
+                            stock,
+                            proveedor,
+                            cantidad,
+                            fechaEntrada
+                        };
+                
+                        let materiales = JSON.parse(localStorage.getItem("materiales")) || [];
+                        materiales.push(nuevoMaterial);
+                        localStorage.setItem("materiales", JSON.stringify(materiales));
+                
+                        mensaje.style.display = "block";
+                        setTimeout(() => {
+                            mensaje.style.display = "none";
+                        }, 3000);
+                    });
+                });
+                </script>
+                
+
+            
+              </div>
+    
+</body>
+</html>

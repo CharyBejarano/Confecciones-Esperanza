@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="styles/fontello.css">
+    <link rel="stylesheet" href="./styles/styles_proveedores.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                </div>
+            </nav>
+
+        <!-- Contenido principal -->
+        <div class="titulo">
+            <h1>Carrito</h1>
+        </div>
+
+        <div class="contenido-carrito">
+            <table id="tabla-carrito">
+                <thead>
+                    <tr>
+                        <th>ID Material</th>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Las filas se generarán dinámicamente -->
+                </tbody>
+            </table>
+
+            <div class="botones-carrito">
+                <button id="limpiar-carrito" class="btn-limpiar">Limpiar</button>
+                <button id="comprar-carrito" class="btn-comprar">Comprar</button>
+            </div>
+
+        </div>
+
+        <div id="modal-compra" class="modal hidden">
+            <div class="modal-content">
+                <h2>La compra se ha solicitado con éxito</h2>
+                <button id="finalizar-btn" class="btn-finalizar2">Finalizar</button>
+            </div>
+        </div>
+        
+        <script>
+            // Cargar datos del carrito desde localStorage
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const tablaCarrito = document.getElementById('tabla-carrito').querySelector('tbody');
+        
+            // Generar filas para la tabla
+            carrito.forEach(item => {
+                const fila = document.createElement('tr');
+                fila.innerHTML = `
+                    <td>${item.id}</td>
+                    <td>${item.nombre}</td>
+                    <td>${item.cantidad}</td>
+                    <td><button class="eliminar-item" data-index="${carrito.indexOf(item)}">Eliminar</button></td>
+                `;
+                tablaCarrito.appendChild(fila);
+            });
+        
+            // Manejar la eliminación de un elemento
+            tablaCarrito.addEventListener('click', (e) => {
+                if (e.target.classList.contains('eliminar-item')) {
+                    const index = e.target.dataset.index; // Obtener el índice del elemento
+                    carrito.splice(index, 1); // Eliminar el elemento del array
+                    localStorage.setItem('carrito', JSON.stringify(carrito)); // Actualizar localStorage
+                    e.target.parentElement.parentElement.remove(); // Eliminar la fila de la tabla
+                    alert('Elemento eliminado del carrito.');
+                }
+            });
+        
+            // Botón para limpiar el carrito
+            const limpiarCarritoBtn = document.getElementById('limpiar-carrito');
+            limpiarCarritoBtn.addEventListener('click', () => {
+                localStorage.removeItem('carrito'); // Eliminar el carrito del localStorage
+                tablaCarrito.innerHTML = ''; // Limpiar las filas de la tabla
+                alert('El carrito ha sido limpiado.');
+            });
+        
+            // Mostrar el modal al hacer clic en "Comprar"
+            const comprarCarritoBtn = document.getElementById('comprar-carrito');
+            const modalCompra = document.getElementById('modal-compra');
+            const finalizarBtn = document.getElementById('finalizar-btn');
+        
+            comprarCarritoBtn.addEventListener('click', () => {
+                modalCompra.classList.remove('hidden'); // Mostrar el modal
+            });
+        
+            // Guardar la compra en el historial y redirigir al archivo proveedores.html al hacer clic en "Finalizar"
+            finalizarBtn.addEventListener('click', () => {
+                const historial = JSON.parse(localStorage.getItem('historialCompras')) || [];
+                const fecha = new Date();
+                const compra = {
+                    fecha: fecha.toLocaleDateString(),
+                    hora: fecha.toLocaleTimeString(),
+                    items: carrito
+                };
+                historial.push(compra);
+                localStorage.setItem('historialCompras', JSON.stringify(historial)); // Guardar en el historial
+                localStorage.removeItem('carrito'); // Limpiar el carrito
+                window.location.href = 'proveedores.html'; // Redirigir a proveedores.html
+            });
+        </script>
+
+    
+
+</body>

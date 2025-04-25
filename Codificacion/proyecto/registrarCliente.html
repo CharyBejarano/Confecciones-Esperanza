@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Pedidos</title>
+    <link rel="stylesheet" href="styles/stilos.css">
+    <link rel="stylesheet" href="styles/stilosCliente.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Barra lateral izquierda -->
+        <div class="sidebar">
+            <a href="perfil.html" class="profile">
+                <img src="img/iconousuario.png" alt="Perfil" class="profile-icon">
+                <span>Perfil</span>
+            </a>
+            
+            <a href="empleados.html" class="menu-item">
+                <img src="img/iconoemple.png" alt="Empleados" class="icon">
+                <span>Empleados</span>
+            </a>
+            
+            <a href="proveedores.html" class="menu-item">
+                <img src="img/iconoprovee.png" alt="Proveedores" class="icon">
+                <span>Proveedores</span>
+            </a>
+            
+            <a href="clientes.html" class="menu-item">
+                <img src="img/iconocliente.png" alt="Clientes" class="icon">
+                <span>Clientes</span>
+            </a>
+            
+            <a href="configuracion.html" class="menu-item">
+                <img src="img/iconoconfi.png" alt="Configuración" class="icon">
+                <span>Configuración</span>
+            </a>
+        </div>
+
+        <!-- Barra de navegación superior -->
+        <div class="main-content">
+            <nav class="top-nav">
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                    <a href="pedidos.html" class="nav-link">Pedidos</a>
+                    <a href="inventario.html" class="nav-link">Inventario</a>
+                    <a href="balance.html" class="nav-link">Balance general</a>
+                </div>
+                <div class="logout">
+                    <a href="login.html">
+                        <img src="img/iconosalida.png" alt="Logout" class="logout-icon">
+                    </a>
+                </div>
+            </nav>
+
+            <!-- Contenido principal -->
+            <div class="content">
+
+                <div class="formulario">
+                  <h2>Nombre</h2>
+                  <input type="text" id="cliente" placeholder="Nombre"/>
+              
+                  <h2>Razon social</h2>
+                  <input type="text"  id="razon-social" placeholder="empresa" />
+              
+                  <h2>Numero Identificacion</h2>
+                  <input type="text" id="numero-identificacion" placeholder="Numero"/>
+              
+                    <div class="formulario">
+                      <h2>Telefono de contacto</h2>
+                      <input type="text"  id="telefono-contacto" placeholder="Telefono" />
+                    
+                      <h2>Correo electronico</h2>
+                        <input type="text" id="correo-electronico" placeholder="correo" />
+
+                      <h2>Direccion</h2>
+                        <input type="text" id="direccion" placeholder="Direccion"/>
+                      </div>
+                    
+                      <div class="contenedor-imagen-botones">
+                        <div class="grupo-botones">
+                          <button class="guardar">
+                            <img src="img/salvar.png" class="icon" />
+                            Guardar
+                          </button>
+                          <button class="ver-clientes" onclick="window.location.href='./ClientesVer.html'">Ver clientes</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+                  
+            
+        </div>
+                <!--Mensaje -->
+                <div id="mensaje" class="mensaje">
+                    Cliente Registrado con exito
+                     <button id="continuar">Continuar</button>
+                </div>
+<script>
+  document.querySelector(".guardar").addEventListener("click", function () {
+  // Obtener valores de los campos del formulario
+  const nombre = document.getElementById("cliente").value; // Campo "Nombre"
+  const razonSocial = document.getElementById("razon-social").value; // Campo "Razón Social"
+  const identificacion = document.getElementById("numero-identificacion").value; // Campo "Número de Identificación"
+  const telefono = document.getElementById("telefono-contacto").value; // Campo "Teléfono de Contacto"
+  const correo = document.getElementById("correo-electronico").value; // Campo "Correo Electrónico"
+  const direccion = document.getElementById("direccion").value; // Campo "Dirección"
+
+  // Validación básica para asegurarse de que todos los campos estén completos
+  if (nombre && razonSocial && identificacion && telefono && correo && direccion) {
+    // Crear objeto del cliente
+    const cliente = {
+      nombre: nombre,
+      razonSocial: razonSocial,
+      identificacion: identificacion,
+      telefono: telefono,
+      correo: correo,
+      direccion: direccion,
+    };
+    // Guardar en localStorage
+    let clientes = JSON.parse(localStorage.getItem("clientes")) || [];
+    clientes.push(cliente);
+    localStorage.setItem("clientes", JSON.stringify(clientes));
+
+    // Mostrar mensaje de éxito
+    const mensaje = document.getElementById("mensaje");
+    mensaje.style.display = "block";
+
+    // Manejar botón "Continuar"
+    document.getElementById("continuar").addEventListener("click", function () {
+      mensaje.style.display = "none";
+    });
+  } else {
+    alert("Por favor, completa todos los campos antes de registrar el cliente.");
+  }
+});
+
+</script>
+</body>
+</html>
